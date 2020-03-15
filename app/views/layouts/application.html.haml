@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Selectnews
+    %title SelectNews
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -10,7 +10,16 @@
   
   %body
     %header.header
+      .header--wrapper
+        %h1.header-title SelectNews
+        .header-menu
+          %p.menu-button--newpost about
+          %p.menu-button--newpost 投稿
+          %p.menu-button--usersignup 新規登録
+          %p.menu-button--userlogin ログイン
+          %p.menu-button--destroyuser ログアウト
 
     = yield
 
     %footer.footer
+      %p Copyright SelectNews 2020。
