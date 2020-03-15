@@ -1,2 +1,15 @@
-.maicontentwrapper
-  %h1 Posts#index
+.content
+  .content-wrapper
+    .content-wrapper--header
+      .content-category
+        .likes
+          .likes--like all
+          .likes--like 人気
+          .likes--like 重要
+        .tags
+          .tags--tag IT
+          .tags--tag キャリア
+      = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
+        = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
+        = form.submit "検索", class: "search-btn"
+  .posts
