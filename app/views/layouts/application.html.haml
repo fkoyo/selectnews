@@ -11,7 +11,8 @@
   %body
     %header.header
       .header--wrapper
-        %h1.header-title SelectNews 
+        = link_to root_path, class: "header-title" do
+          %h1 SelectNews
         .header-menu
           %p.menu-button--newpost about
           %p.menu-button--newpost 投稿
@@ -22,4 +23,4 @@
     = yield
 
     %footer.footer
-      %p Copyright SelectNews 2020。
+      %p Copyright SelectNews 2020.

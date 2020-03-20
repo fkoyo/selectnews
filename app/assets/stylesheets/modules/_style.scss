@@ -8,11 +8,11 @@ $main-color: #336699;
     background-color:white;
     width: 100%;
     border-bottom: 1px solid #D8D8D8;
-    // position: fixed;
-    // top: 0;
-    // left: 0;
-    // right: 0;
-    // z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
     padding: 14px;
     
     .header--wrapper{
@@ -23,9 +23,12 @@ $main-color: #336699;
       margin: 0 auto;
       
       .header-title{
+        text-decoration: none;
         color: $main-color;
-        font-size: 30px;
-        font-weight: bold;
+        h1{
+          font-size: 30px;
+          font-weight: bold;
+        }
       }
       
       .header-menu{
