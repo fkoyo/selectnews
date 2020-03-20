@@ -1,4 +1,5 @@
 $main-background-color: #F8F8FF;
+$main-color: #336699;
 
 * {
   box-sizing: border-box;
@@ -212,6 +213,48 @@ $main-background-color: #F8F8FF;
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  .newcontent{
+    height: calc(100vh - 72px);
+    background-color: $main-background-color;
+    margin-top: 72px;
+    .newcontent--box{
+      // margin-top: 20px;
+      padding-top: 20px;
+      margin: 0 auto;
+      width: 700px;
+      height: 300px;
+      background-color: white;
+      text-align: center;
+      .newcontent--title{
+        font-size: 20px;
+        margin-bottom: 40px;
+      }
+      .newcontent--content{
+        margin: 0 auto;
+        width: 80%;
+        height: 40px;
+        margin-bottom: 40px;
+      }
+      .newcontent--news_url{
+        width: 80%;
+        height: 40px;
+        margin-bottom: 40px;
+      }
+      input[type="submit"] {
+        background-color: $main-color;
+        font-size: 15px;
+        padding: 3px;
+        border-radius: 5px;
+        color: white;
+        &:hover{
+          background-color: lighten($main-color, 20%);
+          cursor: pointer;
+          position: fixed;
         }
       }
     }
