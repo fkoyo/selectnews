@@ -15,64 +15,62 @@
   .content-main
     .content-main--wrapper
       .posts-lists
-        .posts-list
-          .posts-list--box
-            .posts-list--box__image
-              = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "image-link" do
-                %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
-            .posts-list--box__title 
-              = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "title-link" do
-                %p「エンジニアだからこそ」
-            .posts-list--box__tag 
-              %p経営
-            .posts-list--box__likes 専門的！
-            .posts-list--box__likes 信頼できる！
-            %ul.posts-list--box__comments
-              %p コメント
-              %li.comment すごく重要
-        .posts-list
-          .posts-lists
-        .posts-list
-          .posts-list--box
-            .posts-list--box__image
-              = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "image-link" do
-                %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
-            .posts-list--box__title 
-              = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "title-link" do
-                %p「エンジニアだからこそ」
-            .posts-list--box__tag 
-              %p経営
-            .posts-list--box__likes 専門的！
-            .posts-list--box__likes 信頼できる！
-            %ul.posts-list--box__comments
-              %p コメント
-              %li.comment すごく重要
-        .posts-list
-          .posts-lists
-        .posts-list
-          .posts-list--box
-            .posts-list--box__image
-              = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "image-link" do
-                %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
-            .posts-list--box__title 
-              = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "title-link" do
-                %p「エンジニアだからこそ」
-            .posts-list--box__tag 
-              %p経営
-            .posts-list--box__likes 専門的！
-            .posts-list--box__likes 信頼できる！
-            %ul.posts-list--box__comments
-              %p コメント
-              %li.comment すごく重要
+        - @posts.each do |post|
+          .posts-list
+            .posts-list--box
+              .posts-list--box__image
+                = link_to "#{post.news_url}", class: "image-link" do
+                  %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
+              .posts-list--box__title 
+                = link_to "#{post.news_url}", class: "title-link" do
+                  = post.content
+              .posts-list--box__tag 
+                %p 経営
+              .posts-list--box__likes 専門的！
+              .posts-list--box__likes 信頼できる！
+              %ul.posts-list--box__comments
+                %p コメント
+                %li.comment すごく重要
+        -# .posts-list
+        -#   .posts-list--box
+        -#     .posts-list--box__image
+        -#       = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "image-link" do
+        -#         %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
+        -#     .posts-list--box__title 
+        -#       = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "title-link" do
+        -#         %p「エンジニアだからこそ」
+        -#     .posts-list--box__tag 
+        -#       %p経営
+        -#     .posts-list--box__likes 専門的！
+        -#     .posts-list--box__likes 信頼できる！
+        -#     %ul.posts-list--box__comments
+        -#       %p コメント
+        -#       %li.comment すごく重要
+        -# .posts-list
+        -#   .posts-list--box
+        -#     .posts-list--box__image
+        -#       = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "image-link" do
+        -#         %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
+        -#     .posts-list--box__title 
+        -#       = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "title-link" do
+        -#         %p「エンジニアだからこそ」
+        -#     .posts-list--box__tag 
+        -#       %p経営
+        -#     .posts-list--box__likes 専門的！
+        -#     .posts-list--box__likes 信頼できる！
+        -#     %ul.posts-list--box__comments
+        -#       %p コメント
+        -#       %li.comment すごく重要
       .post-recommendlists
         %p.recommend-category-title 今週のSelect
-        .post-recommendlist
-          .post-recommendlist--main
-            .post-recommendlist--main__image
-              = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "image-link" do
-                %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
-          .post-recommendlist--detail
-            .post-recommendlist--detail__title
-              = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "title-link" do
-                %p「エンジニアだからこそ」
-            .post-recommendlist--detail__tag 経営
+        - @posts.each do |post|
+          .post-recommendlist
+            .post-recommendlist--main
+              .post-recommendlist--main__image
+                = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "image-link" do
+                  %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
+            .post-recommendlist--detail
+              .post-recommendlist--detail__title
+                = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "title-link" do
+                  =post.content
+              .post-recommendlist--detail__tag 経営
