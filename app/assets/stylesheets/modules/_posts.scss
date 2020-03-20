@@ -4,7 +4,7 @@ $main-background-color: #F8F8FF;
   box-sizing: border-box;
 
   .content{
-    height: 700px;
+    height: 1000px;
     background-color: $main-background-color;
     margin-top: 72px;
 
@@ -86,6 +86,7 @@ $main-background-color: #F8F8FF;
           display: flex;
           width: calc(100% - 260px);
           height: 100%;
+          flex-wrap: wrap;
 
           .posts-list{
             width: calc(100% / 3);
@@ -95,6 +96,7 @@ $main-background-color: #F8F8FF;
               // border: 1px solid #A9A9A9;
               border-radius: 8px;
               // background-color: white;
+              margin-bottom: 20px;
 
               &__image{
                 .post-ogp{

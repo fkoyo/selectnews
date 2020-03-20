@@ -19,10 +19,10 @@
           .posts-list
             .posts-list--box
               .posts-list--box__image
-                = link_to "<% post.news_url>", class: "image-link" do
+                = link_to "#{post.news_url}", class: "image-link" do
                   %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
               .posts-list--box__title 
-                = link_to "<% post.news_url>", class: "title-link" do
+                = link_to "#{post.news_url}", class: "title-link" do
                   = post.content
               .posts-list--box__tag 
                 %p 経営
