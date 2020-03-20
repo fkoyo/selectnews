@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :posts, only: :index
+  devise_for :users
+  resources :posts, only: [:index, :new, :create]
 end
