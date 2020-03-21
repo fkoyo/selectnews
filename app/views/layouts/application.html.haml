@@ -21,8 +21,10 @@
             = link_to destroy_user_session_path , method: :delete, class: ".menu-button--destroyuser" do
               %p ログアウト
           - else
-            %p.menu-button--usersignup 新規登録
-            %p.menu-button--userlogin ログイン
+            = link_to new_user_registration_path, class: ".menu-button--usersignup" do
+              %p 新規登録
+            = link_to new_user_session_path, class: ".menu-button--userlogin" do
+              %p ログイン
 
     = yield
 
