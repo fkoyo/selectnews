@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+
+  .users-wrapper{
+    margin-top: 72px;
+    height: calc(100Vh - 72px);
+    text-align: center;
+  }
+}
