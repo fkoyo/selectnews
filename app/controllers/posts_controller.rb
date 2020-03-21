@@ -11,6 +11,10 @@ class PostsController < ApplicationController
     Post.create(post_params)
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   private
   def post_params
     params.require(:post).permit(:content, :news_url)
