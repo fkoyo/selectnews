@@ -18,7 +18,8 @@
           - if user_signed_in?
             = link_to new_post_path , class: ".menu-button--newpost" do
               %p 投稿
-            %p.menu-button--destroyuser ログアウト
+            = link_to destroy_user_session_path , method: :delete, class: ".menu-button--destroyuser" do
+              %p ログアウト
           - else
             %p.menu-button--usersignup 新規登録
             %p.menu-button--userlogin ログイン
