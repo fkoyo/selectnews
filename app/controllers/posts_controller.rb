@@ -17,15 +17,20 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
   end
-
-  def edit
-    
-  end
-
+  
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    post = Tweet.find(params[:id])
+    post.update(post_params)
   end
 
   private
