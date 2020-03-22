@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    # binding.pry
     Post.create(post_params)
   end
 
@@ -17,8 +18,18 @@ class PostsController < ApplicationController
     @comments = @post.comments.includes(:user)
   end
 
+  def edit
+    
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+  end
+
   private
   def post_params
-    params.require(:post).permit(:content, :news_url)
+    params.require(:post).permit(:content, :news_url, tag_ids: []).merge(user_id: current_user.id)
   end
 end

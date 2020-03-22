@@ -5,4 +5,5 @@
         知るべき情報を投稿する
       = form.text_field :content, placeholder: "comment", class: "newcontent--content"
       = form.text_field :news_url, placeholder: "newsURL", class: "newcontent--news_url"
+      = form.collection_check_boxes :tag_ids, Tag.all, :id, :tag_name
       = form.submit "SEND", class: "newpost-btn"
