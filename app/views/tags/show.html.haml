@@ -2,15 +2,9 @@
   .content-head
     .content-head--wrapper
       .content-category
-        .likes
-          .likes--like all
-          .likes--like 人気
-          .likes--like 重要
         .tags
-          - @tags.each do |tag|
-            = link_to "/tags/#{tag.id}" do
-              .tags--text
-                =tag.tag_name
+          .tags--text
+            =@tag.tag_name
       = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
         = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
         = form.submit "検索", class: "search-btn"
@@ -26,10 +20,8 @@
               .posts-list--box__title 
                 = link_to "/posts/#{post.id}", class: "title-link" do
                   = post.content
-              - post.tags.each do |tag|
-                .posts-list--box__tag 
-                  = link_to "/tags/#{tag.id}" do
-                    = tag.tag_name
+              .posts-list--box__tag 
+                %p 経営
               .posts-list--box__likes 専門的！
               .posts-list--box__likes 信頼できる！
               %ul.posts-list--box__comments
@@ -41,13 +33,12 @@
           .post-recommendlist
             .post-recommendlist--main
               .post-recommendlist--main__image
-                = link_to "/posts/#{post.id}", class: "image-link" do
+                = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "image-link" do
                   %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
             .post-recommendlist--detail
               .post-recommendlist--detail__title
-                = link_to "/posts/#{post.id}", class: "title-link" do
+                = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "title-link" do
                   =post.content
-              - post.tags.each do |tag|
-                .post-recommendlist--detail__tag
-                  = link_to "/tags/#{tag.id}" do
-                    = tag.tag_name
+              .post-recommendlist--detail__tag 
+                = @tag.tag_name
+                

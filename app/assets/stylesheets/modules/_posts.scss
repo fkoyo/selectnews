@@ -46,7 +46,7 @@ $main-color: #336699;
             justify-content: left;
             margin-left: 60px;
 
-            &--tag{
+            &--text{
               background-color: #FFC7AF;
               height: 40px;
               width: 80px;
@@ -54,6 +54,7 @@ $main-color: #336699;
               margin-left: 5px;
               line-height: 40px;
               border-radius:3px;
+              text-decoration: none;
             }
           }
         }
@@ -292,6 +293,39 @@ $main-color: #336699;
         &__createdat{
           text-align: left;
           padding-left: 20px;
+        }
+        .content--proceed{
+          &__edit{
+            text-align: left;
+            font-size: 12px;
+            padding-left: 20px;
+            .edit-link{
+              text-decoration: underline;
+              color: black;
+            }
+          }
+          &__destroy{
+            text-align: left;
+            font-size: 12px;
+            padding-left: 20px;
+            .destroy-link{
+              text-decoration: underline;
+              color: black;
+            }
+          }
+        }
+        .content--pagelink{
+          height: 50px;
+          border-radius: 10px;
+          background-color: white;
+          border: 1px solid blue;
+          text-align: center;
+          margin: 10px 10px 10px 10px;
+          line-height: 50px;
+          &__box{
+            color: blue;
+            text-decoration: none;
+          }
         }
       }
       .content-commentbox{
