@@ -9,10 +9,13 @@
         = @post.created_at
     .content-commentbox
       .content-comment--entry
-        = form_with(model: @post, local: true) do |form|
-          %h3.newcontent--title
-          = form.text_field :text, placeholder: "discuss", class: "newcontent--text"
-          = form.submit "Select", class: "newpost-btn"
+        - if current_user
+          = form_with(model: [@post, @comment], local: true) do |form|
+            %h3.newcontent--title
+            = form.text_field :text, placeholder: "discuss", class: "newcontent--text"
+            = form.submit "Select", class: "newpost-btn"
+        - else
+          %strong ＊＊＊ディスカッションへの参加には新規登録/ログインが必要です＊＊＊
       .content-comments--lists
         %h3 ディスカッション一覧
         .content-comments--list
