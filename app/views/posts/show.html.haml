@@ -8,7 +8,9 @@
       .content--detail__createdat
         = @post.created_at
         = link_to "/posts/#{@post.id}", method: :delete do
-          %p 削除
+          %p 投稿を削除
+        = link_to "/posts/#{@post.id}/edit" do
+          %p 投稿を編集
     .content-commentbox
       .content-comment--entry
         - if current_user
