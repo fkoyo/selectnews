@@ -46,7 +46,7 @@ $main-color: #336699;
             justify-content: left;
             margin-left: 60px;
 
-            &--tag{
+            &--text{
               background-color: #FFC7AF;
               height: 40px;
               width: 80px;
@@ -54,6 +54,7 @@ $main-color: #336699;
               margin-left: 5px;
               line-height: 40px;
               border-radius:3px;
+              text-decoration: none;
             }
           }
         }

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: "DESC")
+    @tags = Tag.all
   end
 
   def new
@@ -17,7 +18,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
   end
-  
+  1
   def destroy
     @post = Post.find(params[:id])
     @post.destroy

@@ -3,6 +3,11 @@ class TagsController < ApplicationController
     @tag = Tag.new
   end
 
+  def show
+    tag = Tag.find(params[:id])
+    @posts = tag.posts
+  end
+
   def create
     Tag.create(tag_params)
     redirect_to posts_path
