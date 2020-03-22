@@ -7,7 +7,7 @@ $main-color: #336699;
   .content{
     height: 1000px;
     background-color: $main-background-color;
-    margin-top: 72px;
+    padding-top: 72px;
 
     .content-head{
       border-bottom: 1px solid #A9A9A9;
@@ -255,6 +255,96 @@ $main-color: #336699;
           background-color: lighten($main-color, 20%);
           cursor: pointer;
           position: fixed;
+        }
+      }
+    }
+  }
+
+  .showcontent{
+    height: 1000px;
+    background-color: $main-background-color;
+    margin-top: 72px;   
+    text-align: center;
+    padding-top: 30px;
+    .wrapper{
+      max-width: 1000px;
+      margin: 0 auto;
+      .content--detail{
+        background-color: white;
+        width: 460px;
+        margin: 0 auto;
+        padding-bottom: 20px;
+        // border: 0.1px solid #EEEEEE;
+        &__image{
+          width: 100%;
+          .post-ogp{
+            width: 460px;
+            height: 240px;
+          }
+        }
+        &__title{
+          font-size: 25px;
+          text-align: left;
+          padding: 2px 20px 10px 20px;
+          font-weight: bold;
+        }
+
+        &__createdat{
+          text-align: left;
+          padding-left: 20px;
+        }
+      }
+      .content-commentbox{
+        width: 460px;
+        background-color: white;
+        margin: 0 auto;
+        margin-top: 40px;
+        text-align: left;
+        .content-comment--entry{
+          height: 100px;
+          // width: 100%;
+          border-bottom: 2px solid $main-background-color;
+          margin: 0 auto;
+          // text-align: center;
+          // align-items: center;
+          line-height: 100px;
+          padding-left: 30px;
+          .newcontent--text{
+            text-align: center;
+            align-items: center;
+            height: 40px;
+            width: 300px;
+            border-radius: 5px;
+          }
+          input[type="submit"]{
+            display: inline;
+            height: 40px;
+            width: 80px;
+            background-color:$main-color;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+          }
+        }
+        .content-comments--lists{
+          h3{
+            font-weight: bold;
+            padding: 5px 0 10px 5px;
+          }
+          .content-comments--list{
+            border-bottom: 2px solid $main-background-color;
+            padding: 10px 20px 15px 20px;
+            &__name{
+              font-size: 14px;
+              font-weight: bold;
+              padding-bottom: 5px;
+
+            }
+            &__text{
+              font-size: 14px;
+            }
+          }
         }
       }
     }
