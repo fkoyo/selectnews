@@ -29,8 +29,9 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = Tweet.find(params[:id])
+    post = Post.find(params[:id])
     post.update(post_params)
+    redirect_to posts_path
   end
 
   private
