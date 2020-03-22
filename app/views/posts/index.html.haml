@@ -26,8 +26,10 @@
               .posts-list--box__title 
                 = link_to "/posts/#{post.id}", class: "title-link" do
                   = post.content
-              .posts-list--box__tag 
-                %p 経営
+              - post.tags.each do |tag|
+                .posts-list--box__tag 
+                  = link_to "/tags/#{tag.id}" do
+                    = tag.tag_name
               .posts-list--box__likes 専門的！
               .posts-list--box__likes 信頼できる！
               %ul.posts-list--box__comments
@@ -39,10 +41,13 @@
           .post-recommendlist
             .post-recommendlist--main
               .post-recommendlist--main__image
-                = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "image-link" do
+                = link_to "/posts/#{post.id}", class: "image-link" do
                   %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
             .post-recommendlist--detail
               .post-recommendlist--detail__title
-                = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "title-link" do
+                = link_to "/posts/#{post.id}", class: "title-link" do
                   =post.content
-              .post-recommendlist--detail__tag 経営
+              - post.tags.each do |tag|
+                .post-recommendlist--detail__tag
+                  = link_to "/tags/#{tag.id}" do
+                    = tag.tag_name

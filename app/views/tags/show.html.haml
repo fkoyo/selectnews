@@ -39,4 +39,6 @@
               .post-recommendlist--detail__title
                 = link_to "https://www.fastgrow.jp/articles/chikazawa-sodeyama-enomoto", class: "title-link" do
                   =post.content
-              .post-recommendlist--detail__tag 経営
+              .post-recommendlist--detail__tag 
+                = @tag.tag_name
+                
