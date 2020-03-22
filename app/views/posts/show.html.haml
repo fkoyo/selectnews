@@ -18,11 +18,9 @@
           %strong ＊＊＊ディスカッションへの参加には新規登録/ログインが必要です＊＊＊
       .content-comments--lists
         %h3 ディスカッション一覧
-        .content-comments--list
-          .content-comments--list__name koyo
-          .content-comments--list__text
-            %p コロナウイルスによる経済の縮小を防ぐ方法はワクチンの開発と社会がコロナウイルスを受容すことの二つである
-        .content-comments--list
-          .content-comments--list__name koyo
-          .content-comments--list__text
-            %p コロナウイルスによる経済の縮小を防ぐ方法はワクチンの開発と社会がコロナウイルスを受容すことの二つである
+        - @comments.each do |comment|
+          .content-comments--list
+            .content-comments--list__name 
+              = comment.user.nickname
+            .content-comments--list__text
+              = comment.text
