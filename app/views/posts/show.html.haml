@@ -7,13 +7,14 @@
         = @post.content
       .content--detail__createdat
         = @post.created_at
-      .content--proceed
-        .content--proceed__edit
-          = link_to "/posts/#{@post.id}/edit", class:"edit-link" do
-            %p 投稿を編集
-        .content--proceed__destroy
-          = link_to "/posts/#{@post.id}", method: :deletem, class:"destroy-link" do
-            %p 投稿を削除
+      - if @post.user.id == current_user.id
+        .content--proceed
+          .content--proceed__edit
+            = link_to "/posts/#{@post.id}/edit", class:"edit-link" do
+              %p 投稿を編集
+          .content--proceed__destroy
+            = link_to "/posts/#{@post.id}", method: :deletem, class:"destroy-link" do
+              %p 投稿を削除
       .content--pagelink
         = link_to "#{@post.news_url}", class: "content--pagelink__box" do
           続きを読む
