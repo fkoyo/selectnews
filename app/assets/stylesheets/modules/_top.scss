@@ -1,0 +1,23 @@
+$main-color: #336699;
+
+* {
+  box-sizing: border-box;
+
+  .toppage-wrapper{
+    background-color: #BAD3FF	;
+    height: 100vh;
+    width: 100%;
+    padding-top: 72px;
+    margin: 0 auto;
+    align-items: center;
+    h1{
+      font-size: 120px;
+      text-align: center;
+      line-height: 350px;
+    }
+    p{
+      font-size: 35px;
+      text-align: center;
+    }
+  }
+}

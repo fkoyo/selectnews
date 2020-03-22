@@ -14,7 +14,8 @@
         = link_to posts_path, class: "header-title" do
           %h1 SelectNews
         .header-menu
-          %p.menu-button--newpost about
+          = link_to root_path , class: ".menu-button--newpost" do
+            %p about
           - if user_signed_in?
             = link_to new_post_path , class: ".menu-button--newpost" do
               %p 投稿
