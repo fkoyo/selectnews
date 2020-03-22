@@ -4,8 +4,9 @@ class TagsController < ApplicationController
   end
 
   def show
-    tag = Tag.find(params[:id])
-    @posts = tag.posts
+    @tag = Tag.find(params[:id])
+    @posts = @tag.posts
+    # binding.pry
   end
 
   def create
