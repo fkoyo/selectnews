@@ -14,13 +14,14 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
+    return redirect_to root_path if @post.blank? 
     @comment = Comment.new
-    @comments = @post.comments.includes(:user)
+    @comments = @post.comments.includes(:user) if @post.present?
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.find_by(params[:id])
     @post.destroy
     redirect_to posts_path
   end
