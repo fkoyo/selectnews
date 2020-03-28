@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
   resources :tags, only: [:show, :new, :create]
+  resources :likes, only: [:new, :create]
 end
