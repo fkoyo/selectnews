@@ -18,6 +18,14 @@
       .content--pagelink
         = link_to "#{@post.news_url}", class: "content--pagelink__box" do
           続きを読む
+      -# = form_with(model: @like, local: true) do |form|
+      -#   = form.collection_check_boxes :like_ids, Like.all, :id, :like_name
+      = form_with url: post_likes_path(@post.id) , local: true, method: :post do |f|
+        - @likes.each do |like|
+          = f.radio_button :like_id, "#{like.id}"
+          = f.label :like_name, "#{like.like_name}"
+        = f.submit "like!"
+        
     .content-commentbox
       .content-comment--entry
         - if current_user
@@ -35,3 +43,5 @@
               = comment.user.nickname
             .content-comments--list__text
               = comment.text
+
+        -# = form.radio_button(:like, :like_id, "#{like.like_name}")
