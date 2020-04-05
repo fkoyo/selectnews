@@ -6,4 +6,5 @@ class Post < ApplicationRecord
   has_many :post_user_likes
   has_many :likes, through: :post_user_likes
   validates :news_url, presence: true
+  has_many :trusts, dependent: :destroy
 end

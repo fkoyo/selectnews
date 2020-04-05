@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :post_user_likes, dependent: :destroy
   has_many :likes, through: :post_user_likes
   validates :nickname, presence: true
+  has_many :trusts, dependent: :destroy
 end
