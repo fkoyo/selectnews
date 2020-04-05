@@ -1,0 +1,7 @@
+.newcontent
+  .newcontent--box
+    = form_with(model: @like, local: true) do |form|
+      %h3.newcontent--title
+        新しい種類のlikeの登録をする
+      = form.text_field :like_name, placeholder: "likeの名前", class: "newcontent--content"
+      = form.submit "SEND", class: "newpost-btn"
