@@ -4,9 +4,15 @@ class LikesController < ApplicationController
   # end
 
   def create
+    like = Like.create(like_params)
     binding.pry
-    like = current_user.likes.build(post_id: params[:post_id], like_id: params[:like_id])
-    # redirect_to root_path
+    redirect_to posts_path
+  end
+
+  private
+  def like_params
+    params.permit(like_id: params[:like_id], post_id: params[:post_id], user_id: current_user.id)
+    # .merge(user_id: current_user.id)
   end
 
   # def create

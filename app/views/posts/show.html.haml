@@ -13,7 +13,7 @@
             = link_to "/posts/#{@post.id}/edit", class:"edit-link" do
               %p 投稿を編集
           .content--proceed__destroy
-            = link_to "/posts/#{@post.id}", method: :deletem, class:"destroy-link" do
+            = link_to "/posts/#{@post.id}", method: :delete, class:"destroy-link" do
               %p 投稿を削除
       .content--pagelink
         = link_to "#{@post.news_url}", class: "content--pagelink__box" do
