@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :new, :create, :show, :destroy, :edit, :update] do
     resources :comments, only: :create
     resources :likes, only: :create
+    resources :trusts, only: [:create, :destroy]
   end
   resources :tags, only: [:show, :new, :create]
-  resources :trusts, only: [:create, :destroy]
+  
 end
