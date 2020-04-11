@@ -8,11 +8,7 @@ class Post < ApplicationRecord
   validates :news_url, presence: true
   has_many :trusts, dependent: :destroy
 
-  def trusted(user)
-    trust.create(user_id: user.id)
-  end
-
-  def untrusted(user)
-    trust.find_by(user_id: user.id).destroy
+  def trust_user(user)
+    trusts.find_by(user_id: user.id)
   end
 end
