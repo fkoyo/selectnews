@@ -32,12 +32,12 @@
                     = button_to trust_path(trust, post_id: post.id), method: :delete do
                       .like_btn Trusted
                       -# = image_tag("icon_red_heart.svg")
-                      = post.trusts_count
+                    = post.trusts_count
                   - else 
                     = button_to trusts_path(trust, post_id: post.id) do
                       .like_btn Trust!
                       -# = image_tag("icon_heart.svg")
-                      = post.trusts_count
+                    = post.trusts_count
               - post.tags.each do |tag|
                 .posts-list--box__tag 
                   = link_to "/tags/#{tag.id}" do
