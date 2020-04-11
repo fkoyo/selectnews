@@ -46,7 +46,11 @@
               .posts-list--box__likes 信頼できる！
               %ul.posts-list--box__comments
                 %p コメント
-                %li.comment すごく重要
+                - if post.comments.exists?
+                  %li.comment
+                    = post.comments.last.text
+                - else
+                  .not_comment ※まだコメントはありません
       .post-recommendlists
         %p.recommend-category-title 今週のSelect
         - @weekly_posts.each do |post|

@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     new_date = Time.now
     from_date = (new_date - 7.day)
     @weekly_posts = Post.where(created_at: from_date..new_date).order(trusts_count: "DESC")
+    # 一番最新のコメントを取得する
   end
 
   def new
