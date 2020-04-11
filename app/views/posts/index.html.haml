@@ -26,12 +26,24 @@
               .posts-list--box__title 
                 = link_to "/posts/#{post.id}", class: "title-link" do
                   = post.content
+              .posts-list--box__trust
+                - if user_signed_in?
+                  - if post.trust_user(current_user)
+                    = button_to trust_path(trust, post_id: post.id), method: :delete do
+                      .like_btn Trusted
+                      -# = image_tag("icon_red_heart.svg")
+                      = post.trusts_count
+                  - else 
+                    = button_to trusts_path(trust, post_id: post.id) do
+                      .like_btn Trust!
+                      -# = image_tag("icon_heart.svg")
+                      = post.trusts_count
               - post.tags.each do |tag|
                 .posts-list--box__tag 
                   = link_to "/tags/#{tag.id}" do
                     = tag.tag_name
-                -# .posts-list--box__likes 専門的！
-                -# .posts-list--box__likes 信頼できる！
+              .posts-list--box__likes 専門的！
+              .posts-list--box__likes 信頼できる！
               %ul.posts-list--box__comments
                 %p コメント
                 %li.comment すごく重要
