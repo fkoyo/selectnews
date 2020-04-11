@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: "DESC")
     @tags = Tag.all
+    # ピックアップ記事で一週間の信頼できるポイントが多い記事を表すためのもの
+    new_date = Time.now
+    from_date = (new_date - 7.day)
+    @weekly_posts = Post.where(created_at: from_date..new_date).order(trusts_count: "DESC")
   end
 
   def new
