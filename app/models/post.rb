@@ -11,4 +11,9 @@ class Post < ApplicationRecord
   def trust_user(user)
     trusts.find_by(user_id: user.id)
   end
+
+  def self.search(search)
+    return Post.all unless search
+    Post.where("content LIKE(?)", "%#{search}%")
+  end
 end

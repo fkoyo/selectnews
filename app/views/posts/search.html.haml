@@ -6,11 +6,11 @@
           .likes--like all
           .likes--like 人気
           .likes--like 重要
-        .tags
-          - @tags.each do |tag|
-            = link_to "/tags/#{tag.id}" do
-              .tags--text
-                =tag.tag_name
+        -# .tags
+        -#   - @tags.each do |tag|
+        -#     = link_to "/tags/#{tag.id}" do
+        -#       .tags--text
+        -#         =tag.tag_name
       = form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form|
         = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
         = form.submit "検索", class: "search-btn"
@@ -51,19 +51,19 @@
                     = post.comments.last.text
                 - else
                   .not_comment ※まだコメントはありません
-      .post-recommendlists
-        %p.recommend-category-title 今週のSelect
-        - @weekly_posts.each do |post|
-          .post-recommendlist
-            .post-recommendlist--main
-              .post-recommendlist--main__image
-                = link_to "/posts/#{post.id}", class: "image-link" do
-                  %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
-            .post-recommendlist--detail
-              .post-recommendlist--detail__title
-                = link_to "/posts/#{post.id}", class: "title-link" do
-                  =post.content
-              - post.tags.each do |tag|
-                .post-recommendlist--detail__tag
-                  = link_to "/tags/#{tag.id}" do
-                    = tag.tag_name
+      -# .post-recommendlists
+      -#   %p.recommend-category-title 今週のSelect
+      -#   - @weekly_posts.each do |post|
+      -#     .post-recommendlist
+      -#       .post-recommendlist--main
+      -#         .post-recommendlist--main__image
+      -#           = link_to "/posts/#{post.id}", class: "image-link" do
+      -#             %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
+      -#       .post-recommendlist--detail
+      -#         .post-recommendlist--detail__title
+      -#           = link_to "/posts/#{post.id}", class: "title-link" do
+      -#             =post.content
+      -#         - post.tags.each do |tag|
+      -#           .post-recommendlist--detail__tag
+      -#             = link_to "/tags/#{tag.id}" do
+      -#               = tag.tag_name
