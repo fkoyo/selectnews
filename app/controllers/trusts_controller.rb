@@ -1,13 +1,10 @@
 class TrustsController < ApplicationController
   def create
-    @post = Post.find(params[:post_id])
-    # post.rbにtrustedメソッドを定義
-    @post.trusted(current_user)
+    @trust = Trust.create(user_id: current_user.id, post_id: params[:post_id])
   end
 
   def destroy
-    @post = Trust.find(params[:id]).post
-    # post.rbにuntrustedメソッドを定義
-    @post.untrusted(current_user)
+    trust = Trust.find_by(user_id: current_user.id, post_id: params[:post_id])
+    trust.destroy
   end
 end
