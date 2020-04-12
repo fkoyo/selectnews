@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       get "search"
     end
   end
-  resources :tags, only: [:show, :new, :create]
+  resources :tags, only: [:show, :new, :create] do
+    member do
+      get "search"
+    end
+  end
   resources :trusts, only: [:create, :destroy]
 end

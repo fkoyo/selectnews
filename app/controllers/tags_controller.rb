@@ -13,12 +13,11 @@ class TagsController < ApplicationController
     redirect_to posts_path
   end
   
-  # def search
-  #   @tag = Tag.find(params[:id])
-  #   posts = @tag.posts
-  #   searchd_posts = post.where("content LIKE(?)", "%#{params[:keyword]}%")
-  #   # binding.pry
-  # end
+  def search
+    @tag = Tag.find(params[:id])
+    posts = @tag.posts
+    @searched_posts = posts.where("content LIKE(?)", "%#{params[:keyword]}%")
+  end
 
   private
   def tag_params
