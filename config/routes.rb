@@ -4,7 +4,14 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :new, :create, :show, :destroy, :edit, :update] do
     resources :comments, only: :create
     resources :likes, only: :create
+    collection do
+      get "search"
+    end
   end
-  resources :tags, only: [:show, :new, :create]
+  resources :tags, only: [:show, :new, :create] do
+    member do
+      get "search"
+    end
+  end
   resources :trusts, only: [:create, :destroy]
 end

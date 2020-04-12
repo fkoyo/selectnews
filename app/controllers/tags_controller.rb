@@ -6,12 +6,17 @@ class TagsController < ApplicationController
   def show
     @tag = Tag.find(params[:id])
     @posts = @tag.posts
-    # binding.pry
   end
-
+  
   def create
     Tag.create(tag_params)
     redirect_to posts_path
+  end
+  
+  def search
+    @tag = Tag.find(params[:id])
+    posts = @tag.posts
+    @searched_posts = posts.where("content LIKE(?)", "%#{params[:keyword]}%")
   end
 
   private

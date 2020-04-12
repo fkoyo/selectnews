@@ -1,0 +1,56 @@
+.content
+  .content-head
+    .content-head--wrapper
+      .content-category
+        .likes
+          .likes--like all
+          .likes--like 人気
+          .likes--like 重要
+        -# .tags
+        -#   - @tags.each do |tag|
+        -#     = link_to "/tags/#{tag.id}" do
+        -#       .tags--text
+        -#         =tag.tag_name
+      = form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form|
+        = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
+        = form.submit "検索", class: "search-btn"
+  .content-main
+    .content-main--wrapper
+      - if @posts
+        .posts-lists
+          - @posts.each do |post|
+            .posts-list
+              .posts-list--box
+                .posts-list--box__image
+                  = link_to "/posts/#{post.id}", class: "image-link" do
+                    %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
+                .posts-list--box__title 
+                  = link_to "/posts/#{post.id}", class: "title-link" do
+                    = post.content
+                .posts-list--box__trust
+                  - if user_signed_in?
+                    - if post.trust_user(current_user)
+                      = button_to trust_path(trust, post_id: post.id), method: :delete do
+                        .like_btn Trusted
+                        -# = image_tag("icon_red_heart.svg")
+                      = post.trusts_count
+                    - else 
+                      = button_to trusts_path(trust, post_id: post.id) do
+                        .like_btn Trust!
+                        -# = image_tag("icon_heart.svg")
+                      = post.trusts_count
+                - post.tags.each do |tag|
+                  .posts-list--box__tag 
+                    = link_to "/tags/#{tag.id}" do
+                      = tag.tag_name
+                .posts-list--box__likes 専門的！
+                .posts-list--box__likes 信頼できる！
+                %ul.posts-list--box__comments
+                  %p コメント
+                  - if post.comments.exists?
+                    %li.comment
+                      = post.comments.last.text
+                  - else
+                    .not_comment ※まだコメントはありません
+      - else
+        該当する投稿はありません

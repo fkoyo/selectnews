@@ -5,7 +5,8 @@
         .tags
           .tags--text
             =@tag.tag_name
-      = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
+      -# 下記は特定タグがついた投稿のみをけんさくするようにする
+      = form_with(url: search_tag_path(@tag), local: true, method: :get, class: "search-form") do |form|
         = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
         = form.submit "検索", class: "search-btn"
   .content-main
