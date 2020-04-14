@@ -14,7 +14,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
+    # ここでスクレイピングを起動させる
+    # indexページに遷移
+    post = post_params.to_hash
+    new_post = Post.url_content(post) if post[:news_url]
+    # last_post = post_params(new_post)
+    Post.create(new_post)
+    redirect_to posts_path
   end
 
   def show
@@ -23,7 +29,6 @@ class PostsController < ApplicationController
     @likes = Like.all
     @comment = Comment.new
     @comments = @post.comments.includes(:user) if @post.present?
-    # binding.pry
   end
 
   def destroy

@@ -22,10 +22,10 @@
             .posts-list--box
               .posts-list--box__image
                 = link_to "/posts/#{post.id}", class: "image-link" do
-                  %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
+                  %img{ src: "#{post.ogp_url}", alt: "テクノロジー", class:"post-ogp"}
               .posts-list--box__title 
                 = link_to "/posts/#{post.id}", class: "title-link" do
-                  = post.content
+                  = post.title
               .posts-list--box__trust
                 - if user_signed_in?
                   - if post.trust_user(current_user)
@@ -58,11 +58,11 @@
             .post-recommendlist--main
               .post-recommendlist--main__image
                 = link_to "/posts/#{post.id}", class: "image-link" do
-                  %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
+                  %img{ src: "#{post.ogp_url}", alt: "テクノロジー", class:"post-ogp"}
             .post-recommendlist--detail
               .post-recommendlist--detail__title
                 = link_to "/posts/#{post.id}", class: "title-link" do
-                  =post.content
+                  = post.title
               - post.tags.each do |tag|
                 .post-recommendlist--detail__tag
                   = link_to "/tags/#{tag.id}" do

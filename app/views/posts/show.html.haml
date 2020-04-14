@@ -2,7 +2,7 @@
   .wrapper
     .content--detail
       .content--detail__image
-        %img{ src: "/assets/sample.png", alt: "テクノロジー", class:"post-ogp"}
+        %img{ src: "#{@post.ogp_url}", alt: "テクノロジー", class:"post-ogp"}
       .content--detail__title
         = @post.content
       .content--detail__createdat
