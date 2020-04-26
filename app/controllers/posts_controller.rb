@@ -14,12 +14,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    # ここでスクレイピングを起動させる
-    # indexページに遷移
     post = post_params.to_hash
-    new_post = Post.url_content(post) if post[:news_url]
-    # last_post = post_params(new_post)
-    Post.create(new_post)
+    new_post = Post.url_content(post)
+    Post.create(new_post) 
     redirect_to posts_path
   end
 
