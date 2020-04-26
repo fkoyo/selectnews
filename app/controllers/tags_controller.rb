@@ -16,7 +16,7 @@ class TagsController < ApplicationController
   def search
     @tag = Tag.find(params[:id])
     posts = @tag.posts
-    @searched_posts = posts.where("content LIKE(?)", "%#{params[:keyword]}%")
+    @posts = posts.where("content LIKE(?)", "%#{params[:keyword]}%")
   end
 
   private
