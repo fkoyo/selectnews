@@ -35,7 +35,7 @@ $main-color: #336699;
               height: 40px;
               width: 80px;
               text-align: center;
-              margin-left: 5px;
+              margin-left: 2px;
               line-height: 40px;
               border-radius:3px;
             }
@@ -44,17 +44,24 @@ $main-color: #336699;
           .tags{
             display: flex;
             justify-content: left;
-            margin-left: 60px;
 
-            &--text{
-              background-color: #FFC7AF;
-              height: 40px;
-              width: 80px;
-              text-align: center;
-              margin-left: 5px;
-              line-height: 40px;
-              border-radius:3px;
+            .link-text {
+              margin-left: 10px;
               text-decoration: none;
+
+              &--text{
+                text-align: center;
+                // background-color: #EEEEEE;
+                height: 40px;
+                // width: 0px;
+                line-height: 40px;
+                border-radius:3px;
+              }
+            }
+
+            .text_line{
+              font-size: 7px;
+              line-height: 7px;
             }
           }
         }
