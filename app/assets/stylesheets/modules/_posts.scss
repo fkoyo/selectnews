@@ -85,6 +85,8 @@ $main-color: #336699;
     .content-main{
       max-width: 1000px;
       margin: 0 auto;
+      background-color: $main-background-color;
+      height: 100%;
 
       &--wrapper{
         display: flex;
