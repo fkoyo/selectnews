@@ -44,6 +44,7 @@ $main-color: #336699;
           .tags{
             display: flex;
             justify-content: left;
+            height: 40px;
 
             .link-text {
               margin-left: 10px;
@@ -52,7 +53,6 @@ $main-color: #336699;
               &--text{
                 text-align: center;
                 // background-color: #EEEEEE;
-                height: 40px;
                 // width: 0px;
                 line-height: 40px;
                 border-radius:3px;
