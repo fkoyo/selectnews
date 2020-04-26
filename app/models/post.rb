@@ -14,7 +14,7 @@ class Post < ApplicationRecord
 
   def self.search(search)
     return Post.all unless search
-    Post.where("content LIKE(?)", "%#{search}%")
+    Post.where("title LIKE(?)", "%#{search}%")
   end
 
   def self.url_content(post)

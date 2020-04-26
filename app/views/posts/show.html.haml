@@ -18,13 +18,20 @@
       .content--pagelink
         = link_to "#{@post.news_url}", class: "content--pagelink__box" do
           続きを読む
-      -# = form_with(model: @like, local: true) do |form|
-      -#   = form.collection_check_boxes :like_ids, Like.all, :id, :like_name
-      = form_with url: post_likes_path(@post.id) , local: true, method: :post do |f|
-        - @likes.each do |like|
-          = f.radio_button :like_id, "#{like.id}"
-          = f.label :like_name, "#{like.like_name}"
-        = f.submit "like!"
+      .posts-list--box__trust
+        - if user_signed_in?
+          - if @post.trust_user(current_user)
+            = button_to trust_path(trust, post_id: @post.id), method: :delete do
+              .like_btn Trusted
+              -# = image_tag("icon_red_heart.svg")
+            .like_counts
+              = @post.trusts_count
+          - else 
+            = button_to trusts_path(trust, post_id: @post.id) do
+              .like_btn Trust!
+              -# = image_tag("icon_heart.svg")
+            .like_counts
+              = @post.trusts_count
         
     .content-commentbox
       .content-comment--entry
